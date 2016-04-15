@@ -22,12 +22,8 @@ function _M:new( T )
 		}
 	)
 
-	self.__add = function(a,b)
-		local array = _M:new()
-		for k,v in pairs(a) do array[k] = v end
-		for k,v in pairs(b) do array[k] = v end
-
-		return array
+	T.__newindex = function(table, key, value)
+		table[key] = value
 	end
 
 	return T
